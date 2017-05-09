@@ -9,12 +9,12 @@
 #' @param wdir A character string representing the file path to your working
 #' directory which will be the location of the text file of data to download.
 #' File path should be of the type Z:/DOCUMENTATION/..." or double up the
-#' backslashes if on Windows
+#' backslashes if on Windows.
 #'
 #' @param ddir A character string representing the file path to your download
 #' directory which will be where you want the data to download to. File path
 #' should be of the type Z:/DOCUMENTATION/..." or double up the backslashes if
-#' on Windows.
+#' on Windows. Default is "Y:/sentinel/zdownloads".
 #'
 #' @param aoi A character string of the name of the text file that contains the
 #' addresses of Sentinel data to download. It must include the file extension.
@@ -28,7 +28,8 @@
 #' sent_down(wdir = "Z:/blah/working", ddir "Z:/blah/downloads", aoi = "test.txt")}
 #'
 #' @export
-sent_down <- function(wdir, ddir, aoi = "aoi_list.txt"){
+sent_down <- function(wdir, ddir = "Y:/sentinel/zdownloads" ,
+                      aoi = "aoi_list.txt"){
   setwd(wdir)
   dlist <- read.table(aoi, stringsAsFactors = FALSE)
   setwd(ddir)
