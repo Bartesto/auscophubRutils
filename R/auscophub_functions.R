@@ -48,13 +48,13 @@ sent_down <- function(wdir, ddir = "Y:/sentinel/zdownloads" ,
 #'  (if it doesn't already exist) and within that a folder named for the date of
 #'  image capture. It is written to work from the location of the zip files.
 #'
-#'  @return This function will create a directory for the tile and the date of
+#'
+#' @return This function will create a directory for the tile and the date of
 #'  imagery (all extracted from the zip file name) if they do not already exist.
 #'
-#'   @examples
+#' @examples
 #' \dontrun{
-#' sent_dirs()
-#' }
+#' sent_dirs()}
 sent_dirs <- function(){
   zlist <- list.files(pattern = ".zip")
   for(i in 1:length(zlist)){
