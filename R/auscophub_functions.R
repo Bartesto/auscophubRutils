@@ -45,12 +45,8 @@ sent_down <- function(wdir, ddir = "Y:/sentinel/zdownloads" ,
 #'  \code{sent_dirs} is a function that will create a directory tree which will
 #'  be the final resting place for extracted files from the downloaded zip file.
 #'  Specifically it will create for each downloaded zip file a tile directory
-#'  (if it doesn't already exist) and within that a date of image capture
-#'  directory.
-#'
-#'  @param topdir A character string that is the path to a level above where the
-#'  downloaded zip files are located. The default location is the RS Section's
-#'  Sentinel archive "Y:/sentinel".
+#'  (if it doesn't already exist) and within that a folder named for the date of
+#'  image capture. It is written to work from the location of the zip files.
 #'
 #'  @return This function will create a directory for the tile and the date of
 #'  imagery (all extracted from the zip file name) if they do not already exist.
