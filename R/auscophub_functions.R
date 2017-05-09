@@ -59,8 +59,7 @@ sent_down <- function(wdir, ddir = "Y:/sentinel/zdownloads" ,
 #' \dontrun{
 #' sent_dirs()
 #' }
-sent_dirs <- function(topdir = "Y:/sentinel"){
-  setwd(paste0(topdir, "/zdownloads"))
+sent_dirs <- function(){
   zlist <- list.files(pattern = ".zip")
   for(i in 1:length(zlist)){
     tiledir <- strsplit(zlist[i], "_")[[1]][6]
@@ -73,6 +72,5 @@ sent_dirs <- function(topdir = "Y:/sentinel"){
     if(!file.exists(sentdate)){
       dir.create(sentdate)
     }
-    setwd(topdir)
   }
 }
