@@ -70,3 +70,56 @@ sent_dirs <- function(){
     }
   }
 }
+
+#' Extract jp2 band data from Sentinel-2 downloaded zip files into local archive
+#'
+#' \code{sent_sort} will unzip downloaded Sentinel-2 data to a temp file,
+#' extract just the jp2 formatted bands, create a local archive
+#' (sentinel/TILE/YYYYMMDD) and move the products and original zip file to the
+#' new archive.
+#'
+#' @note This function will:
+#' \itemize{
+#'   \item Create a directory tree which includes a folder for the tile name (if
+#'   it doesn't exist) and within that, a folder for the data overpass date.
+#'   \item Extract all jp2 band data to a temporary file and then copy to the
+#'   appropriate archive folder.
+#'   \item Move the original zip file to the appropriate archive folder}
+#'
+#' @param topdir A character string representing the top level in the local
+#' archive. The default is the RS Section's sentinel archive "Y:/sentinel".
+#'
+#' @return This function will manage the downloaded Sentinel-2 data zip files
+#' into a folder structure similar to the RS section USGS Landsat archive.
+#'
+#' @examples
+#' \dontrun{
+#' sent_sort()}
+#'
+#' @export
+sent_sort <- function(topdir = "Y:/sentinel"){
+  setwd(topdir)
+  ddir <- paste0(topdir, "/zdownloads")
+  setwd(ddir)
+  sent_dirs()
+  setwd(ddir)
+  zlist <- list.files(pattern = ".zip")
+  for(i in 1:length(zlist)){
+    tiledir <- strsplit(zlist[i], "_")[[1]][6]
+    sentdate <- substr(strsplit(zlist[i], "_")[[1]][3], 1, 8)
+    topath <- paste(topdir, tiledir, sentdate, sep = "/")
+    temp <- tempdir()
+    all <- unzip(zlist[i], junkpaths = TRUE, exdir = temp)
+    jps <- all[grepl(pattern = ".jp2", all)]
+    #jp2 copies
+    from <- jps
+    to <- paste(topath, basename(jps), sep = "/")
+    file.copy(from, to)
+    #move zip
+    fromr <- paste(ddir, zlist[i], sep = "/")
+    tor <- paste(topath, zlist[i], sep = "/")
+    file.rename(fromr, tor)
+    unlink(temp, recursive=TRUE)
+  }
+
+}
