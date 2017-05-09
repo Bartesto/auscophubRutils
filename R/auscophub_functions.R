@@ -14,7 +14,7 @@
 #' @param ddir A character string representing the file path to your download
 #' directory which will be where you want the data to download to. File path
 #' should be of the type Z:/DOCUMENTATION/..." or double up the backslashes if
-#' on Windows. Default is "Y:/sentinel/zdownloads".
+#' on Windows. The default is "Y:/sentinel/zdownloads".
 #'
 #' @param aoi A character string of the name of the text file that contains the
 #' addresses of Sentinel data to download. It must include the file extension.
@@ -25,7 +25,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' sent_down(wdir = "Z:/blah/working", ddir "Z:/blah/downloads", aoi = "test.txt")}
+#' sent_down(wdir = "Z:/blah/working", ddir = "Z:/blah/downloads", aoi = "test.txt")}
 #'
 #' @export
 sent_down <- function(wdir, ddir = "Y:/sentinel/zdownloads" ,
@@ -37,5 +37,42 @@ sent_down <- function(wdir, ddir = "Y:/sentinel/zdownloads" ,
     url <- dlist[i,1]
     urlname <- paste0(".//", strsplit(url, "/")[[1]][14])
     download.file(url, destfile = urlname)
+  }
+}
+
+#' Create archive folder directory for Sentinel-2 data downloads
+#'
+#'  \code{sent_dirs} is a function that will create a directory tree which will
+#'  be the final resting place for extracted files from the downloaded zip file.
+#'  Specifically it will create for each downloaded zip file a tile directory
+#'  (if it doesn't already exist) and within that a date of image capture
+#'  directory.
+#'
+#'  @param topdir A character string that is the path to a level above where the
+#'  downloaded zip files are located. The default location is the RS Section's
+#'  Sentinel archive "Y:/sentinel/".
+#'
+#'  @return This function will create a directory for the tile and the date of
+#'  imagery (all extracted from the zip file name) if they do not already exist.
+#'
+#'   @examples
+#' \dontrun{
+#' sent_dirs()
+#' }
+sent_dirs <- function(topdir = "Y:/sentinel/"){
+  setwd(paste0(topdir, "/zdownloads"))
+  zlist <- list.files(pattern = ".zip")
+  for(i in 1:length(zlist)){
+    tiledir <- strsplit(zlist[i], "_")[[1]][6]
+    sentdate <- substr(strsplit(zlist[i], "_")[[1]][3], 1, 8)
+    setwd("..")
+    if(!file.exists(tiledir)){
+      dir.create(tiledir)
+    }
+    setwd(paste0("./", tiledir))
+    if(!file.exists(sentdate)){
+      dir.create(sentdate)
+    }
+    setwd(topdir)
   }
 }

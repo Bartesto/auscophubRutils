@@ -4,18 +4,18 @@
 \alias{sent_down}
 \title{Download Sentinel-2 data from a list}
 \usage{
-sent_down(wdir, ddir, aoi = "aoi_list.txt")
+sent_down(wdir, ddir = "Y:/sentinel/zdownloads", aoi = "aoi_list.txt")
 }
 \arguments{
 \item{wdir}{A character string representing the file path to your working
 directory which will be the location of the text file of data to download.
 File path should be of the type Z:/DOCUMENTATION/..." or double up the
-backslashes if on Windows}
+backslashes if on Windows.}
 
 \item{ddir}{A character string representing the file path to your download
 directory which will be where you want the data to download to. File path
 should be of the type Z:/DOCUMENTATION/..." or double up the backslashes if
-on Windows.}
+on Windows. The default is "Y:/sentinel/zdownloads".}
 
 \item{aoi}{A character string of the name of the text file that contains the
 addresses of Sentinel data to download. It must include the file extension.
@@ -34,6 +34,6 @@ vignette for details.
 }
 \examples{
 \dontrun{
-sent_down(wdir = "Z:/blah/working", ddir "Z:/blah/downloads", aoi = "test.txt")}
+sent_down(wdir = "Z:/blah/working", ddir = "Z:/blah/downloads", aoi = "test.txt")}
 
 }
