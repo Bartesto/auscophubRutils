@@ -50,7 +50,7 @@ sent_down <- function(wdir, ddir = "Y:/sentinel/zdownloads" ,
 #'
 #'  @param topdir A character string that is the path to a level above where the
 #'  downloaded zip files are located. The default location is the RS Section's
-#'  Sentinel archive "Y:/sentinel/".
+#'  Sentinel archive "Y:/sentinel".
 #'
 #'  @return This function will create a directory for the tile and the date of
 #'  imagery (all extracted from the zip file name) if they do not already exist.
@@ -59,7 +59,7 @@ sent_down <- function(wdir, ddir = "Y:/sentinel/zdownloads" ,
 #' \dontrun{
 #' sent_dirs()
 #' }
-sent_dirs <- function(topdir = "Y:/sentinel/"){
+sent_dirs <- function(topdir = "Y:/sentinel"){
   setwd(paste0(topdir, "/zdownloads"))
   zlist <- list.files(pattern = ".zip")
   for(i in 1:length(zlist)){
