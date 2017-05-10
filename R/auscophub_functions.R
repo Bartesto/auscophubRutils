@@ -16,22 +16,22 @@
 #' should be of the type Z:/DOCUMENTATION/..." or double up the backslashes if
 #' on Windows. The default is "Y:/sentinel/zdownloads".
 #'
-#' @param aoi A character string of the name of the text file that contains the
+#' @param file A character string of the name of the text file that contains the
 #' addresses of Sentinel data to download. It must include the file extension.
-#' The default is "aoi_list.txt"
+#' The default is "aoi_download_list.txt"
 #'
 #' @return This function downloads zipped files of Sentinel-2 data from the
 #' Australian Regional Copernicus Hub to a destination of your choice.
 #'
 #' @examples
 #' \dontrun{
-#' sent_down(wdir = "Z:/blah/working", ddir = "Z:/blah/downloads", aoi = "test.txt")}
+#' sent_down(wdir = "Z:/blah/working", ddir = "Z:/blah/downloads", file = "test.txt")}
 #'
 #' @export
 sent_down <- function(wdir, ddir = "Y:/sentinel/zdownloads" ,
-                      aoi = "aoi_list.txt"){
+                      file = "aoi_download_list.txt"){
   setwd(wdir)
-  dlist <- read.table(aoi, stringsAsFactors = FALSE)
+  dlist <- read.table(file, stringsAsFactors = FALSE)
   setwd(ddir)
   for(i in 1:length(dlist[,1])){
     url <- dlist[i,1]
@@ -97,9 +97,7 @@ sent_dirs <- function(){
 #' sent_sort()}
 #'
 #' @export
-sent_sort <- function(topdir = "Y:/sentinel"){
-  setwd(topdir)
-  ddir <- paste0(topdir, "/zdownloads")
+sent_sort <- function(topdir = "Y:/sentinel", ddir = "Y:/sentinel/zdownloads"){
   setwd(ddir)
   sent_dirs()
   setwd(ddir)
@@ -120,6 +118,7 @@ sent_sort <- function(topdir = "Y:/sentinel"){
     tor <- paste(topath, zlist[i], sep = "/")
     file.rename(fromr, tor)
     unlink(temp, recursive=TRUE)
+    cat("sorted: ", zlist[i], "\n")
   }
 
 }
