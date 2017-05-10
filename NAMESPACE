@@ -2,3 +2,6 @@
 
 export(sent_down)
 export(sent_sort)
+importFrom(utils,download.file)
+importFrom(utils,read.table)
+importFrom(utils,unzip)

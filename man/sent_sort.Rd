@@ -4,11 +4,15 @@
 \alias{sent_sort}
 \title{Extract jp2 band data from Sentinel-2 downloaded zip files into local archive}
 \usage{
-sent_sort(topdir = "Y:/sentinel")
+sent_sort(topdir = "Y:/sentinel", ddir = "Y:/sentinel/zdownloads")
 }
 \arguments{
 \item{topdir}{A character string representing the top level in the local
 archive. The default is the RS Section's sentinel archive "Y:/sentinel".}
+
+\item{ddir}{A character string representing the download folder in the local
+archive. The default is the RS Section's sentinel archive
+"Y:/sentinel/zdownloads.}
 }
 \value{
 This function will manage the downloaded Sentinel-2 data zip files

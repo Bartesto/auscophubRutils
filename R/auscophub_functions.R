@@ -89,8 +89,14 @@ sent_dirs <- function(){
 #' @param topdir A character string representing the top level in the local
 #' archive. The default is the RS Section's sentinel archive "Y:/sentinel".
 #'
+#' @param ddir A character string representing the download folder in the local
+#' archive. The default is the RS Section's sentinel archive
+#' "Y:/sentinel/zdownloads.
+#'
 #' @return This function will manage the downloaded Sentinel-2 data zip files
 #' into a folder structure similar to the RS section USGS Landsat archive.
+#'
+#' @importFrom utils download.file read.table unzip
 #'
 #' @examples
 #' \dontrun{
