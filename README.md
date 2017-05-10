@@ -1,4 +1,5 @@
 # auscophubRutils
+[![Travis-CI Build Status](https://travis-ci.org/Bartesto/auscophubRutils.svg?branch=master)](https://travis-ci.org/Bartesto/auscophubRutils) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/Bartesto/auscophubRutils?branch=master&svg=true)](https://ci.appveyor.com/project/Bartesto/auscophubRutils)
 
 The functions in this package have been designed to be part of a workflow incorporating data from the Australian Regional Copernicus Hub and follow on from using some of their python scripts which identify suitable Sentinel-2 data tiles for download.
 
