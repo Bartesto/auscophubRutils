@@ -57,7 +57,7 @@ sent_down <- function(wdir, ddir = "Y:/sentinel/zdownloads" ,
 #' sent_dirs()}
 sent_dirs <- function(){
   zlist <- list.files(pattern = ".zip")
-  for(i in 1:length(zlist)){
+  for(i in seq_along(zlist)){
     tiledir <- strsplit(zlist[i], "_")[[1]][6]
     sentdate <- substr(strsplit(zlist[i], "_")[[1]][3], 1, 8)
     setwd("..")
@@ -108,7 +108,7 @@ sent_sort <- function(topdir = "Y:/sentinel", ddir = "Y:/sentinel/zdownloads"){
   sent_dirs()
   setwd(ddir)
   zlist <- list.files(pattern = ".zip")
-  for(i in 1:length(zlist)){
+  for(i in seq_along(zlist)){
     tiledir <- strsplit(zlist[i], "_")[[1]][6]
     sentdate <- substr(strsplit(zlist[i], "_")[[1]][3], 1, 8)
     topath <- paste(topdir, tiledir, sentdate, sep = "/")
