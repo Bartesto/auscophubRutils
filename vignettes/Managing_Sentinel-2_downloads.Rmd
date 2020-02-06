@@ -31,10 +31,10 @@ library(auscophubRutils)
 
 ##Suggested Workflow
 
-###1. Download
+### 1. Download
 Download Sentinel 2 data from the Australian Copernicus Hub. This should be done with either the [SARA GUI](https://copernicus.nci.org.au/sara.client/#/home) or through the SARA API using Python scripts. The data should be left in the original zipped files in one location
 
-###2. Process
+### 2. Process
 As there have been numerous Sentinel products developed and issued by the ESA, our Sentinel archive has grown. With the aim of avoiding a single archive of mixed and confusing products, the scripts here won't send any processed data direct to the established archive on our Programs `Y:/drive`. The intention is that the user will assess what level of data was acquired and processed (i.e. L1C or L2A) and then move them to an appropriate location.
 
 There are a number of R functions written to handle the details but there is only one that you need to interact with and that is `sentinel_extract()`. You will need to supply the following parameters:
