@@ -1,7 +1,7 @@
 Package: auscophubRutils
 Type: Package
 Title: Functions to assist with Sentinel-2 data management
-Version: 0.1.0
+Version: 0.2.0
 Depends: R (>= 3.0.0)
 Author: Bart Huntley <bart.huntley@dpaw.wa.gov.au>
 Maintainer: Bart Huntley <bart.huntley@dpaw.wa.gov.au>
