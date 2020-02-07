@@ -3,8 +3,8 @@ Type: Package
 Title: Functions to assist with Sentinel-2 data management
 Version: 0.2.0
 Depends: R (>= 3.0.0)
-Author: Bart Huntley <bart.huntley@dpaw.wa.gov.au>
-Maintainer: Bart Huntley <bart.huntley@dpaw.wa.gov.au>
+Author: Bart Huntley <bart.huntley@dbca.wa.gov.au>
+Maintainer: Bart Huntley <bart.huntley@dbca.wa.gov.au>
 Description: Various helper functions to aid in downloading and archiving 
     (locally), Sentinel-2 data from the Australian Regional Copernicus Hub.
 License: GPL (>= 2)
