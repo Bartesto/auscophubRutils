@@ -14,3 +14,4 @@ RoxygenNote: 6.1.1
 Suggests: knitr,
     rmarkdown
 VignetteBuilder: knitr
+Imports: raster stringr utils
