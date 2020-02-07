@@ -17,7 +17,7 @@ You can install auscophubRutils from github with:
 
 ```R
 # install.packages("devtools")
-devtools::install_github("auscophubRutils/Bartesto", build_vignettes = TRUE)
+devtools::install_github("Bartesto/auscophubRutils", build_vignettes = TRUE)
 ```
 
 
