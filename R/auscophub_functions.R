@@ -66,7 +66,7 @@ s_organise <- function(dzip = dzip, path = path, res = res, ext = ext){
   f_mtd_xml <- files[grep("MTD", files)][1]
   f_jp2 <- grep("IMG_DATA", grep(".jp2", files, value = T), value = T)
   f_bjp2 <- f_jp2[grep(pattern = "[B][A-Z0-9]{2}", f_jp2)]
-  level <- substr(strsplit(dzip, "_")[[1]][3], 4, 6)
+  level <- substr(strsplit(basename(dzip), "_")[[1]][2], 4, 6)
   #extract the band jp2's and QA xml
   cat("Extracting files...\n")
   get <- c(f_bjp2, f_mtd_xml)
